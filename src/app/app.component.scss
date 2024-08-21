@@ -1,0 +1,8 @@
+@import "../styles/abstarcts/variables";
+@import "../styles/abstarcts/mixins";
+
+.main-container {
+  @include flex-container(column, null, center, 3.2rem);
+  padding: 2.4rem;
+  background-color: $Rose-50;
+}

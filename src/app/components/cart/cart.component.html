@@ -1,0 +1,15 @@
+<div class="cart">
+  <p class="cart-number">Your cart (0)</p>
+
+  @if (emptyCart === 0) {
+  <div class="cart__list-container">
+    <div>
+      <img
+        src="../../../assets/images/illustration-empty-cart.svg"
+        alt="empty cart"
+      />
+    </div>
+    <p class="empty">Your added items will appear here</p>
+  </div>
+  }
+</div>
