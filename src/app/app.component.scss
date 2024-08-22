@@ -2,7 +2,32 @@
 @import "../styles/abstarcts/mixins";
 
 .main-container {
-  @include flex-container(column, null, center, 3.2rem);
+  @include flex-container(column, flex-start, flex-start, 3.2rem);
   padding: 2.4rem;
   background-color: $Rose-50;
+
+  .cart {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    @include flex-container(column, flex-start, flex-start);
+
+    .cart {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    @include flex-container(row, flex-start, flex-start);
+    padding: 8.8rem 11.2rem;
+
+    .cart {
+      width: 100%;
+    }
+  }
 }
