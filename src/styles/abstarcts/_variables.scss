@@ -50,16 +50,20 @@ $text-preset-4: 1.4rem;
   @include flex-container(row, center, space-between, 1.2rem);
   background-color: $Red;
   color: #fff;
-  
+
   padding: 12px 20px;
   cursor: pointer;
   height: 4.4rem;
   width: 16rem;
   border-radius: 100rem;
   position: absolute;
-  top: 67%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: $text-preset-4;
   font-weight: 700;
+}
+
+.border-active {
+  border: 0.25rem solid $Red;
 }
