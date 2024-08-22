@@ -3,6 +3,7 @@ import { Image, Product } from '../../interface/product.model';
 import { DataService } from '../../services/data.service';
 import { CommonModule } from '@angular/common';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -18,6 +19,7 @@ export class ProductListComponent implements OnInit {
   private dataServce = inject(DataService);
   private breakpointobserver = inject(BreakpointObserver);
   private cdRef = inject(ChangeDetectorRef);
+  private cartService = inject(CartService);
 
   ngOnInit(): void {
     this.dataServce.getProduct().subscribe((data: Product[]) => {
@@ -35,7 +37,6 @@ export class ProductListComponent implements OnInit {
         Breakpoints.WebLandscape,
       ])
       .subscribe((result) => {
-        console.log('Breakpoint result:', result.breakpoints);
         if (
           result.breakpoints[Breakpoints.HandsetPortrait] ||
           result.breakpoints[Breakpoints.HandsetLandscape]
@@ -87,8 +88,7 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(dessert: Product): void {
-    dessert.addedToCart = true;
-    dessert.quantity = 1;
+    this.cartService.addToCart(dessert);
   }
 
   increaseQuantity(dessert: Product): void {
@@ -98,8 +98,6 @@ export class ProductListComponent implements OnInit {
   decreaseQuantity(dessert: Product): void {
     if (dessert.quantity > 1) {
       dessert.quantity--;
-    } else {
-      dessert.addedToCart = false;
     }
   }
 }
