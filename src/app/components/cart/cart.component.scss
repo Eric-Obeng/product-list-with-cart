@@ -117,17 +117,6 @@
   & .confirm {
     width: 100%;
 
-    & .confirm-btn {
-      width: 100%;
-      color: #fff;
-      background-color: $Red;
-      border: none;
-      font-size: $text-preset-3;
-      transition: all 0.2s ease-in-out;
 
-      &:hover {
-        background-color: #952c0b;
-      }
-    }
   }
 }
