@@ -67,3 +67,16 @@ $text-preset-4: 1.4rem;
 .border-active {
   border: 0.25rem solid $Red;
 }
+
+.confirm-btn {
+  width: 100%;
+  color: #fff;
+  background-color: $Red;
+  border: none;
+  font-size: $text-preset-3;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #952c0b;
+  }
+}
