@@ -1,22 +1,63 @@
 @import "../styles/abstarcts/variables";
 @import "../styles/abstarcts/mixins";
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .main-container {
   @include flex-container(column, flex-start, flex-start, 3.2rem);
-  padding: 2.4rem;
   background-color: $Rose-50;
+  position: relative;
+  height: 100vh;
+
+  .col-1 {
+    padding: 2.4rem;
+  }
 
   .cart {
     width: 100%;
+  }
+
+  .summary {
+    position: absolute;
+    bottom: 0;
+    // transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.493);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;;
+
+    .summary-component {
+      max-height: 90%;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      border-radius: 1.5rem 1.5rem 0 0;
+    }
+    @media (max-height: 768px) {
+      .summary-component {
+        border-radius: 1.6rem;
+      }
+    }
   }
 }
 
 @media (min-width: 768px) {
   .main-container {
     @include flex-container(column, flex-start, flex-start);
+    // padding: 2.4rem;
 
     .cart {
       width: 100%;
+    }
+
+    .summary {
+      @include flex-container(row, center, center);
+      // border-radius: 1.6rem;
+      top: 0;
+      left: 0;
+      height: 100vh;
     }
   }
 }
@@ -24,7 +65,11 @@
 @media (min-width: 1024px) {
   .main-container {
     @include flex-container(row, flex-start, flex-start);
-    padding: 8.8rem 11.2rem;
+    // padding: 8.8rem 11.2rem;
+
+    .col-1 {
+      @include flex-container(row, flex-start, space-between, 3.2rem);
+    }
 
     .cart {
       width: 100%;
