@@ -8,6 +8,13 @@
   width: 100%;
   position: absolute;
   bottom: 0;
+  border-radius: 1.6rem 1.6rem 0 0;
+  opacity: 0;
+  max-height: 90%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  animation: slideUp 0.7s ease-in-out forwards;
   // height: 100vh;
 
   .summary__text {
@@ -124,13 +131,13 @@
 
 @media (min-width: 768px) {
   .summary {
+    margin-inline: auto;
+    width: 90%;
+    top: 20%;
     border-radius: 1.6rem;
-    max-height: 50%;
+    max-height: 60%;
     overflow-y: scroll;
     scrollbar-width: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -138,7 +145,7 @@
   .summary {
     border-radius: 1.6rem;
     width: 59.2rem;
-    max-height: 50%;
+    height: 70%;
     overflow-y: scroll;
     scrollbar-width: none;
   }

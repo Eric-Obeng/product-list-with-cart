@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Product } from '../../interface/product.model';
 import { CartService } from '../../services/cart.service';
 
@@ -12,7 +12,20 @@ import { CartService } from '../../services/cart.service';
 })
 export class OrderSummaryComponent {
   @Input() CartItems: Product[] = [];
-  // @Input() totalPrice: number = 0;
+  @Output() orderCompleted = new EventEmitter<void>();
 
   cartService = inject(CartService);
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.cartService.cartItems$.subscribe((items) => {
+      this.CartItems = items;
+    });
+  }
+
+  startNewOrder() {
+    this.cartService.clearCart();
+    this.orderCompleted.emit();
+  }
 }

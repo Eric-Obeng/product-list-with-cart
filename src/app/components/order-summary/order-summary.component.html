@@ -49,5 +49,5 @@
     <p class="price">{{ cartService.getTotalPrice() | currency }}</p>
   </div>
   </div>
-  <button class="confirm-btn">Start New Order</button>
+  <button class="confirm-btn" (click)="startNewOrder()">Start New Order</button>
 </div>
