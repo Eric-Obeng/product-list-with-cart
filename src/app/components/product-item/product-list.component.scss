@@ -3,6 +3,7 @@
 
 .product-list {
   @include flex-container(column, flex-start, center, 3.2rem);
+  width: 100%;
 
   .type {
     font-size: 4rem;
@@ -15,27 +16,41 @@
 
     .product__image {
       padding-bottom: 2rem;
+      transition: all 0.1s ease-in-out;
 
       img {
         width: 100%;
         height: auto;
         border-radius: 0.8rem;
-        border: 0.25 solid transparent;
+        border: 0.25rem solid transparent;
+        transition: all 0.2s ease-in-out;
+
+        &.border-active {
+          border: 0.25rem solid $Red;
+        }
       }
-    }
 
-    .btn-cart {
-      @include flex-container(row, center, center, 0.5rem);
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: $text-preset-4;
-      font-weight: 700;
+      div {
+        .btn-cart {
+          @include flex-container(row, center, center, 0.5rem);
+          position: absolute;
+          top: 68%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: $text-preset-4;
+          font-weight: 700;
 
-      &:hover {
-        color: $Red;
-        border: 0.1rem solid $Red;
+          &:hover {
+            color: $Red;
+            border: 0.1rem solid $Red;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .btn-cart {
+            top: 70%;
+          }
+        }
       }
     }
 

@@ -1,4 +1,11 @@
-<main class="main-container">
-  <app-product-list />
-  <app-cart class="cart"/>
+<main class="main-container" [ngClass]="{ 'no-scroll': showOrderSummary }">
+  <div class="col-1">
+    <app-product-list />
+    <app-cart class="cart" (confirmOrder)="onConfirmOrder()" />
+  </div>
+  @if (showOrderSummary) {
+  <div class="summary" (click)="onClick($event)">
+    <app-order-summary [CartItems]="cartItems" class="summary-component" (orderCompleted)="onOrderCompleted()" />
+  </div>
+  }
 </main>

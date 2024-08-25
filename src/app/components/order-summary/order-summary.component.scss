@@ -1,0 +1,152 @@
+@import "../../../styles/abstarcts/mixins";
+@import "../../../styles/abstarcts/variables";
+
+.summary {
+  @include flex-container(column, flex-start, flex-start, 3.2rem);
+  background-color: #fff;
+  padding: 2.4rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 1.6rem 1.6rem 0 0;
+  opacity: 0;
+  max-height: 90%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  animation: slideUp 0.7s ease-in-out forwards;
+  // height: 100vh;
+
+  .summary__text {
+    @include flex-container(column, flex-start, flex-start, 2.4rem);
+
+    .text-div {
+      .text-title {
+        font-size: $text-preset-1-m;
+        font-weight: 700;
+        line-height: 1.2;
+        color: $Rose-900;
+
+        & span {
+          display: block;
+        }
+        @media (min-width: 768px) {
+          span {
+            display: inline;
+          }
+        }
+      }
+
+      .text-description {
+        color: $Rose-500;
+        font-size: $text-preset-3;
+      }
+    }
+  }
+
+  .confirm {
+    width: 100%;
+    background-color: $Rose-50;
+    border-radius: 0.8rem;
+    padding: 2.4rem;
+    width: 100%;
+
+    .confirm-item {
+      @include flex-container(row, center, space-between, 1.6rem);
+      border-bottom: 0.1rem solid $Rose-100;
+      padding: 1.6rem;
+      width: 100%;
+
+      .col-1 {
+        @include flex-container(row);
+        gap: 1.6rem;
+
+        .confirm-item-img {
+          height: 4.8rem;
+          width: 4.8rem;
+
+          & img {
+            width: 100%;
+          }
+        }
+
+        .confirm-item-info {
+          @include flex-container(column, flex-start, center, 1rem);
+
+          .confirm-item-name {
+            font-size: $text-preset-4;
+            font-weight: 600;
+          }
+
+          .info {
+            @include flex-container(row, center, center, 0.8rem);
+
+            .confirm-item-quantity {
+              color: $Red;
+              font-size: $text-preset-4;
+              font-weight: 600;
+            }
+
+            .confirm-item-price {
+              color: $Rose-500;
+              font-size: $text-preset-4;
+            }
+          }
+        }
+      }
+
+      .col-2 {
+        p {
+          font-size: $text-preset-3;
+          color: $Rose-900;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .total {
+    width: 100%;
+    @include flex-container(row, center, space-between);
+    padding: 1.6rem;
+
+    .text {
+      font-size: $text-preset-4;
+      color: $Rose-900;
+    }
+
+    .price {
+      font-size: $text-preset-2;
+      color: $Rose-900;
+      font-weight: 700;
+    }
+  }
+
+  & .confirm-btn {
+    border-radius: 10rem;
+    padding: 1.6rem 2.4rem;
+    font-size: $text-preset-3;
+  }
+}
+
+@media (min-width: 768px) {
+  .summary {
+    margin-inline: auto;
+    width: 90%;
+    top: 20%;
+    border-radius: 1.6rem;
+    max-height: 60%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .summary {
+    border-radius: 1.6rem;
+    width: 59.2rem;
+    height: 70%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+}
