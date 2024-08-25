@@ -39,7 +39,18 @@ export class AppComponent {
     document.body.classList.add('no-scroll');
   }
 
-  onClick() {
+  onClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (!target.closest('app-order-summary')) {
+      this.showOrderSummary = false;
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  onOrderCompleted(){
     this.showOrderSummary = false;
+    this.cartService.clearCart();
+    document.body.classList.remove('no-scroll');
   }
 }

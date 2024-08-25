@@ -21,21 +21,20 @@
 
   .summary {
     position: absolute;
-    bottom: 0;
-    // transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.493);
     width: 100%;
     height: 100vh;
-    overflow: hidden;;
+    // overflow: hidden;
 
     .summary-component {
-      max-height: 90%;
+      // max-height: 90%;
       overflow-y: scroll;
       scroll-behavior: smooth;
       scrollbar-width: none;
       border-radius: 1.5rem 1.5rem 0 0;
     }
-    @media (max-height: 768px) {
+
+    @media (min-width: 768px) {
       .summary-component {
         border-radius: 1.6rem;
       }
@@ -54,10 +53,11 @@
 
     .summary {
       @include flex-container(row, center, center);
-      // border-radius: 1.6rem;
-      top: 0;
-      left: 0;
       height: 100vh;
+
+      .summary-component {
+        @include flex-container(row, center, center);
+      }
     }
   }
 }

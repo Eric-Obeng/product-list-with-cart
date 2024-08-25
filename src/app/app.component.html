@@ -4,8 +4,8 @@
     <app-cart class="cart" (confirmOrder)="onConfirmOrder()" />
   </div>
   @if (showOrderSummary) {
-  <div class="summary" (click)="onClick()">
-    <app-order-summary [CartItems]="cartItems" class="summary-component" />
+  <div class="summary" (click)="onClick($event)">
+    <app-order-summary [CartItems]="cartItems" class="summary-component" (orderCompleted)="onOrderCompleted()" />
   </div>
   }
 </main>
