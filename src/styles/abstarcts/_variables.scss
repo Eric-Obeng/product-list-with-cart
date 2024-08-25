@@ -57,11 +57,17 @@ $text-preset-4: 1.4rem;
   width: 16rem;
   border-radius: 100rem;
   position: absolute;
-  top: 70%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: $text-preset-4;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .product__quantity {
+    top: 70%;
+  }
 }
 
 .border-active {
@@ -78,5 +84,16 @@ $text-preset-4: 1.4rem;
 
   &:hover {
     background-color: #952c0b;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
