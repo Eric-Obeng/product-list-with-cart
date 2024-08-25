@@ -48,7 +48,7 @@ export class AppComponent {
     }
   }
 
-  onOrderCompleted(){
+  onOrderCompleted() {
     this.showOrderSummary = false;
     this.cartService.clearCart();
     document.body.classList.remove('no-scroll');
