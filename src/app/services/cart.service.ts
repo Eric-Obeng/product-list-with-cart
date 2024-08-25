@@ -48,4 +48,10 @@ export class CartService {
       0
     );
   }
+
+  clearCart() {
+    this.cartItems.forEach((product) => (product.addedToCart = false));
+    this.cartItems = [];
+    this.cartItemsSubject.next(this.cartItems);
+  }
 }
