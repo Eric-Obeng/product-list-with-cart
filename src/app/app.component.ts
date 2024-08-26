@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './components/product-item/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
@@ -11,12 +10,11 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
-    ProductListComponent,
-    CartComponent,
-    OrderSummaryComponent,
-    CommonModule,
-  ],
+      ProductListComponent,
+      CartComponent,
+      OrderSummaryComponent,
+      CommonModule,
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
