@@ -40,7 +40,7 @@ export class OrderSummaryComponent {
   handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       this.startNewOrder();
-      event.preventDefault(); 
+      event.preventDefault();
     }
   }
 }
