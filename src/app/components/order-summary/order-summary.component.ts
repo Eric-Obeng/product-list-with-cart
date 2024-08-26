@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  HostListener,
+} from '@angular/core';
 import { Product } from '../../interface/product.model';
 import { CartService } from '../../services/cart.service';
 
@@ -27,5 +34,13 @@ export class OrderSummaryComponent {
   startNewOrder() {
     this.cartService.clearCart();
     this.orderCompleted.emit();
+  }
+
+  @HostListener('window:key.enter', ['$event'])
+  handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.startNewOrder();
+      event.preventDefault(); 
+    }
   }
 }

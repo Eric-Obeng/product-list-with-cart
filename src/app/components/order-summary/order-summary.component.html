@@ -43,11 +43,17 @@
         <p>{{ item.price * item.quantity | currency }}</p>
       </div>
     </div>
-  }
-  <div class="total">
-    <p class="text">Order Total</p>
-    <p class="price">{{ cartService.getTotalPrice() | currency }}</p>
+    }
+    <div class="total">
+      <p class="text">Order Total</p>
+      <p class="price">{{ cartService.getTotalPrice() | currency }}</p>
+    </div>
   </div>
-  </div>
-  <button class="confirm-btn" (click)="startNewOrder()">Start New Order</button>
+  <button
+    class="confirm-btn"
+    (click)="startNewOrder()"
+    (keydown)="handleKeydown($event)"
+  >
+    Start New Order
+  </button>
 </div>
